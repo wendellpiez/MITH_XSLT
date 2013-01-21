@@ -25,7 +25,7 @@
     <p:pipe port="result" step="final-cleanup"/>
   </p:output>
   
-  <p:option name="file-path" select="'file:/C:/Work/Projects/MITH/Shelley-Godwin/Delivery/MITH-XSLT/ms-pages/'"/>
+  <p:option name="file-path" select="'../ms-pages'"/>
   
   <!-- Pull surface contents into div[@type='chapter'] based on
        ptr references -->
