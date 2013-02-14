@@ -22,15 +22,21 @@
   <!-- Promoting pb elements at the front and end of paragraphs to be
        next to, not inside them. -->
   <xsl:template match="p">
+    <xsl:copy-of select="pb[empty(preceding-sibling::*)]"/>
     <xsl:next-match/>
     <xsl:copy-of select="pb[empty(following-sibling::*)]"/>
   </xsl:template>
 
+  <!-- Dropping any spurious paragraphs holding nothing but a head or pb -->
+  <xsl:template match="p[empty(* except (head|pb))]">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
   <!-- dropping a p/pb if it appears at the end of its parent -->
-  <xsl:template match="p/pb[empty(following-sibling::node()[normalize-space(.)])]"/>
+  <xsl:template match="p/pb[empty(following-sibling::*)]"/>
 
-  <!-- or if it's the first one in its chapter -->
-  <xsl:template match="pb[f:first-pb(.)]" priority="1"/>
+  <!-- or if it's the first one in its chapter-->
+  <xsl:template match="pb[f:first-pb(.)]" priority="1"/> 
   
   <!-- This could be simplified ... -->
   <xsl:function name="f:first-pb" as="xs:boolean">
@@ -38,10 +44,9 @@
     <xsl:param name="pb" as="element(pb)"/>
     <xsl:variable name="chapter" select="$pb/ancestor::div[@type='chapter'][1]"/>
     <xsl:sequence select="empty(
-      ($chapter//(*|text()[normalize-space(.)]) except $chapter//(head/(.|.//node())|p))
-       (: all elements and significant text inside the chapter except head elements, their
-          descendants, and p elements :)
-      [. &lt;&lt; $pb] (: appearing before this pb :) )"/>
+        ($chapter//* except ($chapter//head | $pb/parent::p))[. &lt;&lt; $pb]
+        (: all elements inside the chapter except any head or the pb's parent p,
+           appearing before this pb :) )"/>
   </xsl:function>
 
   <xsl:template match="line">
