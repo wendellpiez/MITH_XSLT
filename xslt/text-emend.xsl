@@ -76,7 +76,8 @@
   </xsl:template>
   
   <xsl:template match="addSpan" mode="insert">
-    <!-- The anchor $upTo is expected to share its parent with the addSpan -->
+    <!-- The anchor $upTo is expected to share its parent with the addSpan:
+         this is a problem to come back to! -->
     <xsl:variable name="upTo" select="id(replace(@spanTo,'^#',''))"/>
     <xsl:apply-templates select="following-sibling::node()[. &lt;&lt; $upTo]"/>
   </xsl:template>

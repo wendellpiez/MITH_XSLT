@@ -59,4 +59,9 @@
     </rule>
   </pattern>
   
+  <!--<pattern>
+    <rule context="tei:ptr">
+      <report test="true()">Found a ptr.</report>
+    </rule>
+  </pattern>-->
 </schema>

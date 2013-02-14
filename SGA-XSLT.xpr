@@ -347,6 +347,21 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>chapter-map.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Run process-ms xpl on chapter-map.xml</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>process-ms.xpl</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -746,7 +761,7 @@
                                                 <String>final</String>
                                             </field>
                                             <field name="url">
-                                                <null/>
+                                                <String>${pdu}/testing/reading-ms.xml</String>
                                             </field>
                                             <field name="showInSequenceView">
                                                 <Boolean>true</Boolean>
@@ -755,7 +770,22 @@
                                     </xprocOutputPort-array>
                                 </field>
                                 <field name="xprocOptions">
-                                    <xprocOption-array/>
+                                    <xprocOption-array>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>file-path</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                            <field name="defaultValue">
+                                                <String>'../ms-pages'</String>
+                                            </field>
+                                        </xprocOption>
+                                    </xprocOption-array>
                                 </field>
                                 <field name="xprocParameters">
                                     <xprocParameterPort-array>
