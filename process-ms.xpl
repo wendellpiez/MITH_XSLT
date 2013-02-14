@@ -21,8 +21,11 @@
   <p:output primary="false" port="step5">
     <p:pipe port="result" step="p-promote"/>
   </p:output>
-  <p:output primary="true" port="final">
+  <p:output primary="false" port="final">
     <p:pipe port="result" step="final-cleanup"/>
+  </p:output>
+  <p:output primary="true" port="html">
+    <p:pipe port="result" step="toHTML"/>
   </p:output>
   
   <p:option name="file-path" select="'../ms-pages'"/>
@@ -75,6 +78,12 @@
     </p:input>
   </p:xslt>
   
+  <!-- to HTML -->
+  <p:xslt name="toHTML">
+    <p:input port="stylesheet">
+      <p:document href="xslt/toHTML.xsl"/>
+    </p:input>
+  </p:xslt>
   
   <!--<p:identity/>-->
   
