@@ -16,15 +16,21 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="teiHeader">
-    <xsl:copy>
-      <xsl:comment> ... header goes here ...</xsl:comment>
-    </xsl:copy>
+  <xsl:template match="teiHeader/fileDesc/titleStmt">
+    <titleStmt>
+      <title>Abinger MS to <title>Frankenstein</title>: reading version</title>
+    </titleStmt>
   </xsl:template>
   
- 
+  <xsl:template match="teiHeader/fileDesc/sourceDesc">
+    <sourceDesc>
+      <p>Generated programmatically from TEI Genetic Edition encoding.</p>
+    </sourceDesc>
+  </xsl:template>
+  
   <xsl:template match="ptr[not(starts-with(@target,'#'))]">
     <xsl:variable name="target-path" select="string-join(($file-path,@target),'/')"/>
     <xsl:copy-of select="document($target-path)/*"/>
   </xsl:template>
+
 </xsl:stylesheet>

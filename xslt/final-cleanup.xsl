@@ -10,7 +10,13 @@
 <!-- Final cleanup pass -->
   
   <!--<xsl:strip-space elements="p resolved"/>-->
-  
+
+  <xsl:template match="/">
+    <xsl:processing-instruction name="xml-model">
+      <xsl:text>href="tei_lite.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:text>
+    </xsl:processing-instruction>
+    <xsl:apply-templates/>
+  </xsl:template>
   <xsl:template match="div[@type='chapter']">
     <xsl:copy-of select=".//pb[f:first-pb(.)]"/>
     <xsl:next-match/>
@@ -22,17 +28,22 @@
   <!-- Promoting pb elements at the front and end of paragraphs to be
        next to, not inside them. -->
   <xsl:template match="p">
-    <xsl:copy-of select="pb[empty(preceding-sibling::*)]"/>
     <xsl:next-match/>
     <xsl:copy-of select="pb[empty(following-sibling::*)]"/>
   </xsl:template>
 
-  <!-- Dropping any spurious paragraphs holding nothing but a head or pb -->
+  <!-- Dropping any spurious paragraphs holding no elements but a head or pb
+       (text content should be in 'line' elements). -->
   <xsl:template match="p[empty(* except (head|pb))]">
     <xsl:apply-templates/>
   </xsl:template>
   
-  <!-- dropping a p/pb if it appears at the end of its parent -->
+  <!-- Except for paragraphs in the header. -->
+  <xsl:template match="teiHeader//p" priority="5">
+    <xsl:apply-templates select="." mode="copy"/>
+  </xsl:template>
+  
+  <!-- Dropping a p/pb if it appears at the end of its parent. -->
   <xsl:template match="p/pb[empty(following-sibling::*)]"/>
 
   <!-- or if it's the first one in its chapter-->
@@ -57,10 +68,14 @@
   
   <xsl:template match="milestone[@unit='tei:p']"/>
   
-  <xsl:template match="node() | @*">
+  <xsl:template match="node() | @*" mode="copy #default">
     <xsl:copy>
       <xsl:apply-templates select="node() | @*"/>
     </xsl:copy>
   </xsl:template>
+  
+  <!--
+    These elements aren't valid in the TEI Lite target ... 
+    <xsl:template match="metamark | space | rewrite | damage | restore"/>-->
   
 </xsl:stylesheet>

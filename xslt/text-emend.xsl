@@ -64,10 +64,9 @@
   </xsl:template>
   
   <xsl:template match="ptr">
-    <resolved>
-      <xsl:copy-of select="@target"/>
+    <add source="{@target}">
       <xsl:apply-templates select="id(replace(@target,'^#',''))" mode="insert"/>
-    </resolved>
+    </add>
   </xsl:template>
   
   <!-- insert mode doesn't copy the element being inserted, but all its contents -->

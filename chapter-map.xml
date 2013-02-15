@@ -6,10 +6,10 @@
         <title>Abinger MS to <title>Frankenstein</title>: page map</title>
       </titleStmt>
       <publicationStmt>
-        <p>For internal use: not to be published</p>        
+        <p>For internal use: not for publication.</p>        
       </publicationStmt>
       <sourceDesc>
-        <p>Created in support of Shelley-Godwin Archive XSLT</p>
+        <p>Created in support of Shelley-Godwin Archive XSLT.</p>
       </sourceDesc>
     </fileDesc>
   </teiHeader>
