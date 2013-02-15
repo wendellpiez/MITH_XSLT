@@ -23,6 +23,7 @@
                     .bold {font-weight: bold}
                     .italic {font-style:italic}
                     .sup {vertical-align:super}
+                    .lb { color:grey }
                 </style>
             </head>
             <body>
@@ -35,23 +36,23 @@
     <xsl:template match="*[tei:metamark][count(*)=1]"/>    
     
     <xsl:template match="tei:pb">
-        <span xmlns="http://www.w3.org/1999/xhtml" class="pb">[Page <xsl:value-of select="number(substring(comment(), string-length(comment())-5, 4))"/>]</span>
+        <span class="pb">[Page <xsl:value-of select="number(substring(comment(), string-length(comment())-5, 4))"/>]</span>
     </xsl:template>
     
     <xsl:template match="tei:div">
-        <div xmlns="http://www.w3.org/1999/xhtml">
+        <div>
             <xsl:apply-templates/>
         </div>
     </xsl:template>
     
     <xsl:template match="tei:p">
-        <p xmlns="http://www.w3.org/1999/xhtml">
+        <p>
             <xsl:apply-templates/>
         </p>
     </xsl:template>
     
     <xsl:template match="tei:lg">
-        <p xmlns="http://www.w3.org/1999/xhtml" class="lg">
+        <p class="lg">
             <xsl:for-each select="tei:l">
                 <xsl:apply-templates/><br/>
             </xsl:for-each>
@@ -60,24 +61,28 @@
     
     <xsl:template match="tei:head">
         <xsl:variable name="lv" select="count(ancestor::tei:div)+1"/>
-        <xsl:element name="h{$lv}" namespace="http://www.w3.org/1999/xhtml" >
+        <xsl:element name="h{$lv}" >
             <xsl:value-of select="."/>
         </xsl:element>
     </xsl:template>
     
     <xsl:template match="tei:hi">
-        <span xmlns="http://www.w3.org/1999/xhtml" class="{@rend}">
+        <span class="{string-join((@rend,'hi'),' ')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
     
     <!-- this will eventually be obsolete -->
     <xsl:template match="tei:resolved">
-        <span xmlns="http://www.w3.org/1999/xhtml" class="diag">
+        <span class="diag">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
     
+    <xsl:template match="tei:lb">
+      <span class="lb">|</span>
+    </xsl:template>
+  
     <xsl:template match="tei:metamark"/>
 
         
