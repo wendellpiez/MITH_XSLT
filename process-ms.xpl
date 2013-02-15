@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
-  xmlns:c="http://www.w3.org/ns/xproc-step" version="1.0">
+<p:declare-step version="1.0"
+  xmlns:p="http://www.w3.org/ns/xproc"
+  xmlns:c="http://www.w3.org/ns/xproc-step"
+  xmlns:mith="http://mith.umd.edu/sga/ns/xproc"
+  name="TEI-GEtoLite" type="mith:TEI-GEtoLite">
   
   <p:input port="source"/>
   
@@ -21,11 +24,8 @@
   <p:output primary="false" port="step5">
     <p:pipe port="result" step="p-promote"/>
   </p:output>
-  <p:output primary="false" port="final">
+  <p:output primary="true" port="final">
     <p:pipe port="result" step="final-cleanup"/>
-  </p:output>
-  <p:output primary="true" port="html">
-    <p:pipe port="result" step="toHTML"/>
   </p:output>
   
   <p:option name="file-path" select="'../ms-pages'"/>
@@ -75,13 +75,6 @@
       <!-- To do: add any plumbing to final result
            (serialization options, schema pointers etc.) -->
       <p:document href="xslt/final-cleanup.xsl"/>
-    </p:input>
-  </p:xslt>
-  
-  <!-- to HTML -->
-  <p:xslt name="toHTML">
-    <p:input port="stylesheet">
-      <p:document href="xslt/toHTML.xsl"/>
     </p:input>
   </p:xslt>
   
