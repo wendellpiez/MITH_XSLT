@@ -59,6 +59,14 @@
     </rule>
   </pattern>
   
+  <pattern>
+    <rule context="tei:addSpan">
+    <!-- An addSpan's target must be a following sibling. -->
+      <let name="target" value="id(replace(@spanTo,'^#',''))"/>
+      <assert test="$target intersect following-sibling::*">addSpan's target not found among its following siblings.</assert>
+    </rule>
+  </pattern>
+  
   <!--<pattern>
     <rule context="tei:ptr">
       <report test="true()">Found a ptr.</report>
