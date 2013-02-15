@@ -31,9 +31,21 @@
             </body>
         </html>
     </xsl:template>
-    
-    <!-- Ignore all elements that conatin only metmark -->
-    <xsl:template match="*[tei:metamark][count(*)=1]"/>    
+
+    <xsl:template match="tei:teiHeader//tei:titleStmt/tei:title">
+      <h1 class="page-title">
+        <xsl:apply-templates/>
+      </h1>
+    </xsl:template>
+  
+    <xsl:template match="tei:title/tei:title">
+      <span class="italic">
+        <xsl:apply-templates/>
+      </span>
+    </xsl:template>
+  
+    <!-- Ignore all elements that contain only metamark -->
+  <xsl:template match="*[exists(tei:metamark) and empty((*|text()[normalize-space()]) except tei:metamark)]"/>    
     
     <xsl:template match="tei:pb">
         <span class="pb">[Page <xsl:value-of select="number(substring(comment(), string-length(comment())-5, 4))"/>]</span>
@@ -73,7 +85,7 @@
     </xsl:template>
     
     <!-- this will eventually be obsolete -->
-    <xsl:template match="tei:resolved">
+    <xsl:template match="tei:add[@source]">
         <span class="diag">
             <xsl:apply-templates/>
         </span>
