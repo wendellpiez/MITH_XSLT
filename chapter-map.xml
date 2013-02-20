@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
   <teiHeader>
     <fileDesc>
       <titleStmt>
@@ -18,36 +18,36 @@
       <div type="chapter">
         <head>Chapter 5</head>
         <!-- ptr is not valid to TEI Lite: any better suggestions? -->
-        <ptr target="ox-ms_abinger_c56-0031.xml"/>
-        <ptr target="ox-ms_abinger_c56-0032.xml"/>
-        <ptr target="ox-ms_abinger_c56-0033.xml"/>
-        <ptr target="ox-ms_abinger_c56-0034.xml"/>
-        <ptr target="ox-ms_abinger_c56-0035.xml"/>
-        <ptr target="ox-ms_abinger_c56-0036.xml"/>
-        <ptr target="ox-ms_abinger_c56-0037.xml"/>
-        <ptr target="ox-ms_abinger_c56-0038.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0031.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0032.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0033.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0034.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0035.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0036.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0037.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0038.xml"/>
       </div>
       <div type="chapter">
         <head>Chapter 6</head>
-        <ptr target="ox-ms_abinger_c56-0039.xml"/>
-        <ptr target="ox-ms_abinger_c56-0040.xml"/>
-        <ptr target="ox-ms_abinger_c56-0041.xml"/>
-        <ptr target="ox-ms_abinger_c56-0042.xml"/>
-        <ptr target="ox-ms_abinger_c56-0043.xml"/>
-        <ptr target="ox-ms_abinger_c56-0044.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0039.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0040.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0041.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0042.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0043.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0044.xml"/>
         </div>
       <div type="chapter">
         <head>Chapter 7th</head>
-        <ptr target="ox-ms_abinger_c56-0045.xml"/>
-        <ptr target="ox-ms_abinger_c56-0046.xml"/>
-        <ptr target="ox-ms_abinger_c56-0047.xml"/>
-        <ptr target="ox-ms_abinger_c56-0048.xml"/>
-        <ptr target="ox-ms_abinger_c56-0049.xml"/>
-        <ptr target="ox-ms_abinger_c56-0050.xml"/>
-        <ptr target="ox-ms_abinger_c56-0051.xml"/>
-        <ptr target="ox-ms_abinger_c56-0052.xml"/>
-        <ptr target="ox-ms_abinger_c56-0053.xml"/>
-        <ptr target="ox-ms_abinger_c56-0054.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0045.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0046.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0047.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0048.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0049.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0050.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0051.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0052.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0053.xml"/>
+        <xi:include href="ms-pages/ox-ms_abinger_c56-0054.xml"/>
       </div>
     </body>
   </text>

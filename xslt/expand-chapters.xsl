@@ -28,9 +28,9 @@
     </sourceDesc>
   </xsl:template>
   
-  <xsl:template match="ptr[not(starts-with(@target,'#'))]">
+  <!--<xsl:template match="ptr[not(starts-with(@target,'#'))]">
     <xsl:variable name="target-path" select="string-join(($file-path,@target),'/')"/>
     <xsl:copy-of select="document($target-path)/*"/>
-  </xsl:template>
+  </xsl:template>-->
 
 </xsl:stylesheet>
